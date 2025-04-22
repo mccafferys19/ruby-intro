@@ -1,5 +1,5 @@
 # connect to the Blockchain.com Exchange Rates API
-# DON'T CHANGE THIS CODE
+# DON'T CHANGE THIS CODE -- making a programmatic request of the URL
 # ----------------------
 require "net/http"
 require "json"
@@ -26,8 +26,19 @@ bitcoin_data = JSON.parse(response)
 puts "How much bitcoin do you have?"
 bitcoin = gets.chomp
 
-# 2. The value will be a string, so you'll want to convert it to a Float.
+# 2. The value will be a string, so you'll want to convert it to a Float (a numerical value).
 bitcoin = bitcoin.to_f
 
 # 3. inspect the bitcoin_data hash
 # puts bitcoin_data
+
+# extract current USD bitcoin rate
+usd = bitcoin_data["USD"]["last"]
+# puts usd
+
+# calculate value of user's bitcoin
+value = usd * bitcoin.to_f
+
+# display in strings
+puts "Bitcoin is valued at $#{usd} USD."
+puts "Your Bitcoin is worth $#{value}."
