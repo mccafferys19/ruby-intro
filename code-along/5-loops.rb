@@ -20,11 +20,13 @@ loop do
     if index == tacos.count # makes this a dynamic program -- loop until reaching end of array
         break
     end
+
    puts tacos[index]
+
     index = index + 1 # increments to tell go back to beginning
 end
 
-# adding shorthand for above
+# adding shorthand for above - there is a shorthand in every language because the above loop structure is seen in every language
 for taco in tacos
     # taco = tacos[index]
     puts tacos[index]
